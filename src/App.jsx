@@ -17,9 +17,9 @@ function App() {
     setWicket(wicket + value);
   }
 
-  // const handleBall = (value) => {
-  //   setBall(ball + value);
-  // }
+  const handleBall = (value) => {
+    setBall(ball + value);
+  }
 
 
   return (
@@ -48,12 +48,12 @@ function App() {
         <div>
           Over:{" "}
           <h1 className="overCount">
-            {
+{/*             
               // Show Over here in the format: "over.ball" eg: 4.5 means 4th over and 5th ball
               // if 1 more ball is thrown then over is now 5.0
-              // you have to write logic to form this string from current ball number.
-              ball
-            }
+              // you have to write logic to form this string from current ball number. */}
+              {`${Math.floor(ball / 6)}.${ball % 6}`}
+            
           </h1>
         </div>
       </div>
@@ -99,19 +99,12 @@ function App() {
         Add ball
         {/* Increase the total number of balls thrown here. */}
         <button onClick={() => {
-          if(score <= 100)
-          {
-            let count = ball + 0.1;
-            if(count < (ball + 0.6))
-            {
-              setBall(count);
-            }
-          }
+          handleBall(1);
         }}>Add 1</button>
       </div>
 
       {/* If score reaches greater than 100, show text "India Won" without quotes in h1 tag with class name 'status' */}
-      <h1 className='status'>{score > 100 ? "India Won": ""}</h1>
+      <h1 className='status'>{score > 100 && "India Won"}</h1>
     </div>
   );
 }
