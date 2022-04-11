@@ -99,7 +99,10 @@ function App() {
         Add ball
         {/* Increase the total number of balls thrown here. */}
         <button onClick={() => {
-          handleBall(1);
+           if(score <= 100)
+           {
+            handleBall(1);
+           }
         }}>Add 1</button>
       </div>
 
